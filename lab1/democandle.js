@@ -27,15 +27,20 @@ pb.ready(function () {
 var client = Client.fromConnectionString(connectionString, Protocol);
 
 function connected(err) {
+
+    pb.setColor(255, 255, 0, 0);
+
     if (err) {
         console.log("connection error: " + err);
     } else {
         client.on('message', function (msg) {
+
             if (pbReady) {
                 console.log("Message received " + msg.messageId + " " + msg.getData());
                 var values = JSON.parse(msg.getData());
                 console.log(values);
-                pb.setColor(values.s, values.r, values.g, values.b);
+                pb.setColor(values.s, values.r, values.g, values.b);               
+
                 client.complete(msg, function (msgErr) {
                     if (msgErr)
                         console.log(msgErr);

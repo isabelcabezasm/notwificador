@@ -33,14 +33,12 @@ function connected(err) {
         client.on('message', function (msg) {
             if (pbReady) {
                 console.log("Message received " + msg.messageId + " " + msg.getData());
-                //var values = JSON.parse(msg.getData());
-                //console.log(values);
-                //pb.setColor(values.s, values.r, values.g, values.b);
+                var values = JSON.parse(msg.getData());
+                console.log(values);
+                pb.setColor(values.s, values.r, values.g, values.b);
                 client.complete(msg, function (msgErr) {
                     if (msgErr)
                         console.log(msgErr);
-                    else
-                        console.log("done");
                 });
             }
             else {
@@ -49,5 +47,4 @@ function connected(err) {
         });
     }
 }
-
 client.open(connected);

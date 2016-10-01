@@ -36,6 +36,12 @@ function connected(err) {
                 //var values = JSON.parse(msg.getData());
                 //console.log(values);
                 //pb.setColor(values.s, values.r, values.g, values.b);
+                client.complete(msg, function (msgErr) {
+                    if (msgErr)
+                        console.log(msgErr);
+                    else
+                        console.log("done");
+                });
             }
             else {
                 console.log("candle not ready");

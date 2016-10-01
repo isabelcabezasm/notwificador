@@ -8,7 +8,8 @@ function randInt(n) {
     return Math.floor(Math.random() * n);
 }
 function a() {
-    var color = '{s:' + randInt(256) + ',r:' + randInt(256) + ',g:' + randInt(256) + ',b:' + randInt(256) + '}';
+    var colorObj = { s: randInt(256), r: randInt(256), g: randInt(256), b: randInt(256) };
+    var color = JSON.stringify(colorObj);
     client.send('Edison', color, function (err) {
         if (err) {
             console.log('Error: ' + err);

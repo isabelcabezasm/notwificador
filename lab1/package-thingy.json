@@ -1,0 +1,17 @@
+  {
+    "name": "myapp",
+    "version": "0.0.1",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/ThingLabsIo/IoTLabs"
+    },
+    "bugs": {
+      "url": "https://github.com/ThingLabsIo/IoTLabs/issues"
+    },
+    "description": "Sample using Node.js, Johnny-Five, and the Intel Edison.",
+    "license": "MIT",
+    "dependencies": {
+      "johnny-five": "latest",
+      "edison-io": "latest"
+    }
+  }

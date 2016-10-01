@@ -1,0 +1,9 @@
+{
+  "name": "ew",
+  "version": "0.0.0",
+  "description": "ew",
+  "main": "server.js",
+  "author": {
+    "name": "isacabe"
+  }
+}

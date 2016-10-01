@@ -1,0 +1,12 @@
+{
+  "name": "web-job",
+  "version": "0.0.0",
+  "description": "WebJob",
+  "main": "app.js",
+  "author": {
+    "name": "isacabe"
+  },
+  "dependencies": {
+    "azure-iothub": "^1.0.17"
+  }
+}

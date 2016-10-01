@@ -1,0 +1,21 @@
+{
+  "name": "thingy",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThingLabsIo/IoTLabs/tree/master/Edison/AzureIoT"
+  },
+  "bugs": {
+    "url": "https://github.com/ThingLabsIo/IoTLabs/issues"
+  },
+  "description": "Sample app that connects a device to Azure using Node.js",
+  "main": "thingyd2c",
+  "license": "MIT",
+  "dependencies": {
+    "azure-iot-device": "^1.0.15",
+    "azure-iot-device-amqp-ws": "^1.0.16",
+    "edison-io": "latest",
+    "johnny-five": "latest",
+    "noble": "latest"
+  }
+}

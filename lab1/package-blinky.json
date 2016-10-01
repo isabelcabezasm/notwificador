@@ -1,0 +1,21 @@
+{
+  "name": "blinky",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThingLabsIo/IoTLabs"
+  },
+  "bugs": {
+    "url": "https://github.com/ThingLabsIo/IoTLabs/issues"
+  },
+  "description": "Hello, World using Node.js and Johnny-Five blinks an LED.",
+  "main": "blinky.js",
+  "author": {
+    "name": "isacabe"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "edison-io": "^0.9.4",
+    "johnny-five": "^0.10.0"
+  }
+}

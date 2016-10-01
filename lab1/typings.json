@@ -1,0 +1,6 @@
+{
+  "globalDependencies": {
+    "johnny-five": "registry:dt/johnny-five#0.0.0+20160316155526",
+    "node": "registry:dt/node#6.0.0+20160928143418"
+  }
+}

@@ -32,8 +32,8 @@ function connected(err) {
     } else {
         client.on('message', function (msg) {
             if (pbReady) {
-                console.log(message);
-                var values = JSON.parse(message);
+                console.log(msg);
+                var values = JSON.parse(msg);
                 console.log(values);
                 pb.setColor(values.s, values.r, values.g, values.b);
             }

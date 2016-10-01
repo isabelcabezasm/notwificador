@@ -33,9 +33,9 @@ function connected(err) {
         client.on('message', function (msg) {
             if (pbReady) {
                 console.log("Message received " + msg.messageId + " " + msg.getData());
-                var values = JSON.parse(msg.getData());
-                console.log(values);
-                pb.setColor(values.s, values.r, values.g, values.b);
+                //var values = JSON.parse(msg.getData());
+                //console.log(values);
+                //pb.setColor(values.s, values.r, values.g, values.b);
             }
             else {
                 console.log("candle not ready");

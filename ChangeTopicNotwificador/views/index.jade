@@ -1,0 +1,17 @@
+﻿extends layout
+
+block content
+  .jumbotron
+    h1 Notwificador
+    p.lead Esta web servirá para cambiar el "tema" de búsqueda de nuestro "Notwificador"
+    .row
+       .col-md-4
+          h2 Topic
+    form#formChangeTopic(name="changeTopic", method="post", action="/changeTopic")
+          p
+             input#inputTopic(type="text", placeholder="topic", name="inputTopic")
+          p
+             button#buttonSubmit(type="submit") Cambiar
+
+
+

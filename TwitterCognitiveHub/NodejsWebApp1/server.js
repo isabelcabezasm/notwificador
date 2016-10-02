@@ -2,7 +2,7 @@
 var request = require('request');
 var iothub = require('azure-iothub');
 
-var connectionString = 'HostName=Notwificador.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=SwFLUdj5il1qTE61SCQd6uGSu4qGmDBh+AzWeG+RBd4='; 
+var connectionString = process.env.CONNECTION_STRING; 
 var hubClient = iothub.Client.fromConnectionString(connectionString);
 var redObj = { s:0, r: 255, g: 0, b: 0 };
 var red = JSON.stringify(redObj);

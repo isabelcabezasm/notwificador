@@ -122,13 +122,15 @@ var Playbulb = function (type, playbulbName, colorUuid, effectsUuid) {
                             service.on('characteristicsDiscover', function (characteristics) {
                                 characteristics.map(function (characteristic) {
                                     if (characteristic.uuid === colorUuid) {
+                                        
                                         playPeripheral = peripheral;
                                         colorChar = characteristic;
                                         isReady();
-                                    } else if (characteristic.uuid === effectsUuid) {
-                                        effectsChar = characteristic;
-                                        isReady();
                                     } 
+                                        //else if (characteristic.uuid === effectsUuid) {
+                                    //    effectsChar = characteristic;
+                                    //    isReady();
+                                    //} 
                                 });
                             });
                         });

@@ -1,0 +1,4 @@
+C:\Users\julie_000\Documents\CognitiveServicesProjects\NodejsWebApp1\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsprojResolveAssemblyReference.cache
+C:\Users\julie_000\Documents\CognitiveServicesProjects\NodejsWebApp1\NodejsWebApp1\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\julie_000\Documents\CognitiveServicesProjects\NodejsWebApp5\NodejsWebApp1\obj\Debug\NodejsWebApp1.njsprojResolveAssemblyReference.cache
+C:\Users\julie_000\Documents\CognitiveServicesProjects\NodejsWebApp5\NodejsWebApp1\bin\Microsoft.NodejsTools.WebRole.dll

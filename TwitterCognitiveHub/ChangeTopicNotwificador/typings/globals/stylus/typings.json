@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/69eaae71c0e3b46437b467f8e3fb4ed4a360110e/stylus/stylus.d.ts",
+    "raw": "registry:dt/stylus#0.0.0+20160831020201",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/69eaae71c0e3b46437b467f8e3fb4ed4a360110e/stylus/stylus.d.ts"
+  }
+}

@@ -10,11 +10,15 @@ SUBSCRIPTION_KEY
 
 IotHub:
 CONNECTION_STRING
+
+Topic:
+TWEETS_TOPIC
 */
 
 var twitter = require('twitter');
 var request = require('request');
 var iothub = require('azure-iothub');
+var azure = require('azure-storage');
 
 var connectionString = process.env.CONNECTION_STRING; 
 var hubClient = iothub.Client.fromConnectionString(connectionString);
@@ -32,23 +36,25 @@ var client = new twitter({
     access_token_secret: process.env.ACCESS_TOKEN_SECRET
 });
 
-var tweetsTopic = "TechSummit";
+var tweetsTopic = process.env.TWEETS_TOPIC; 
 var tweetsLanguage = "es"; //"es", "en", "fr", "pt"
 var tweetsText = '';
 var sentiment = 0.5;
 var counter = 0;
+var stream;
 
+function handleTweet(event) {
+    var retweeted = event.retweeted_status;
+    var tweet = (retweeted == null ? event.text : event.retweeted_status.text);
+    var cleanTweet = cleanText(tweet);
+    tweetsText += " " + cleanTweet;
+};
 
 function search() {
     var myJSON = { "documents": [] };
-    var stream = client.stream('statuses/filter', { track: tweetsTopic, language: tweetsLanguage });
+    stream = client.stream('statuses/filter', { track: tweetsTopic, language: tweetsLanguage });
 
-    stream.on('data', function (event) {
-        var retweeted = event.retweeted_status;
-        var tweet = (retweeted == null ? event.text : event.retweeted_status.text);
-        var cleanTweet = cleanText(tweet);
-        tweetsText += " " + cleanTweet;
-    });
+    stream.on('data', handleTweet);
 
     stream.on('error', function (error) {
         console.log(error);
@@ -56,6 +62,8 @@ function search() {
 
     analyzeTweets();
 }
+
+var analyzeLoop;
 
 function analyzeTweets() {
     try {
@@ -67,7 +75,7 @@ function analyzeTweets() {
         console.log(err);
     }
 
-    setTimeout(analyzeTweets, 1000);
+    analyzeLoop = setTimeout(analyzeTweets, 1000);
 }
 
 function analyzeText(tweet) {
@@ -102,7 +110,7 @@ function analyzeText(tweet) {
                     console.log('Error: ' + err);
                 }
             });
-            console.log(counter + " - " + sentiment + " - " + color);
+            console.log(counter + " - " + sentiment + " - c:" + color + " - s:" + score + " - t:" + tweet);
         }
         else
             console.log(error);
@@ -115,5 +123,35 @@ function cleanText(text) {
 
     return myCleanText;
 }
+
+function listenQueue() {
+    var queueSvc = azure.createQueueService();
+
+    function listen() {
+        queueSvc.getMessages('notwiqueue', function (error, result, response) {
+            if (!error) {
+                if (result.length > 0) {
+                    // Message text is in messages[0].messageText
+                    var message = result[0];
+                    console.log(message.messageText);
+
+                    clearTimeout(analyzeLoop);
+                    stream.removeListener('data', handleTweet);
+                    tweetsTopic = message.messageText;
+                    search();
+
+                    queueSvc.deleteMessage('notwiqueue', message.messageId, message.popReceipt, function (error, response) {
+                        if (!error) {
+                            //message deleted
+                        }
+                    });
+                }
+            }
+        });
+    }
+    setInterval(listen, 1000);
+}
+
+listenQueue();
 
 hubClient.open(search);

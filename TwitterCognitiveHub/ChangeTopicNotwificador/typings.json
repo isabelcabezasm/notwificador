@@ -1,0 +1,8 @@
+{
+  "globalDependencies": {
+    "express": "registry:dt/express#4.0.0+20160708185218",
+    "jade": "registry:dt/jade#0.0.0+20160316155526",
+    "node": "registry:dt/node#6.0.0+20160928143418",
+    "stylus": "registry:dt/stylus#0.0.0+20160831020201"
+  }
+}

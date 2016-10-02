@@ -246,3 +246,4 @@ ModelManifest.xml
 
 #env with azure keys
 env.bat
+*.pubxml

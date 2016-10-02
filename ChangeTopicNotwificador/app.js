@@ -42,9 +42,11 @@ app.post("/changeTopic", function (req, res) {
             queueSvc.createMessage('notwiqueue', req.body.inputTopic, function (error, result, response) {
                 if (!error) {
                     console.log("Message inserted");
+                    res.redirect("/");
                 }
                 else {
                     console.log(error);
+                    res.send(error.toString());
                 }
             });
         }

@@ -7,6 +7,8 @@
     "name": "julie_000"
   },
   "dependencies": {
-    "request": "^2.75.0"
+    "azure-iothub": "^1.0.17",
+    "request": "^2.75.0",
+    "twitter": "^1.4.0"
   }
 }

@@ -137,6 +137,8 @@ function listenQueue() {
 
                     clearTimeout(analyzeLoop);
                     stream.removeListener('data', handleTweet);
+                    stream.destroy();
+                    sentiment = 0.5;
                     tweetsTopic = message.messageText;
                     search();
 

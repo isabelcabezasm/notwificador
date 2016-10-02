@@ -1,4 +1,18 @@
-﻿var twitter = require('twitter');
+﻿/*Environment variables to add: 
+Twitter: 
+CONSUMER_KEY
+CONSUMER_SECRET
+ACCESS_TOKEN_KEY
+ACCESS_TOKEN_SECRET
+
+Cognitive:
+SUBSCRIPTION_KEY
+
+IotHub:
+CONNECTION_STRING
+*/
+
+var twitter = require('twitter');
 var request = require('request');
 var iothub = require('azure-iothub');
 
@@ -8,7 +22,7 @@ var redObj = { s:0, r: 255, g: 0, b: 0 };
 var red = JSON.stringify(redObj);
 var blueObj = { s: 0, r: 0, g: 0, b: 255 };
 var blue = JSON.stringify(blueObj);
-var greenObj = { s: 0, r: 0, g: 0, b: 255 };
+var greenObj = { s: 0, r: 0, g: 255, b: 0 };
 var green = JSON.stringify(greenObj);
 
 var client = new twitter({
@@ -100,10 +114,6 @@ function cleanText(text) {
     var myCleanText = urlLess_text.replace(/\B@[a-z0-9_-]+/gi, '');
 
     return myCleanText;
-}
-
-function randInt(n) {
-    return Math.floor(Math.random() * n);
 }
 
 hubClient.open(search);

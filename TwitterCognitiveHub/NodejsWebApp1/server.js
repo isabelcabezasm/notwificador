@@ -18,8 +18,8 @@ var client = new twitter({
     access_token_secret: process.env.ACCESS_TOKEN_SECRET
 });
 
-var tweetsTopic = "Rajoy";
-var tweetsLanguage = "es"; //"es", "en", "fr", "pt"
+var tweetsTopic = "TechSummit";
+var tweetsLanguage = "en"; //"es", "en", "fr", "pt"
 var tweetsText = '';
 var sentiment = 0.5;
 var counter = 0;

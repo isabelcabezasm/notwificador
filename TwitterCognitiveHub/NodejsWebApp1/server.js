@@ -4,11 +4,11 @@ var iothub = require('azure-iothub');
 
 var connectionString = 'HostName=Notwificador.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=SwFLUdj5il1qTE61SCQd6uGSu4qGmDBh+AzWeG+RBd4='; 
 var hubClient = iothub.Client.fromConnectionString(connectionString);
-var redObj = { s:255, r: 255, g: 0, b: 0 };
+var redObj = { s:0, r: 255, g: 0, b: 0 };
 var red = JSON.stringify(redObj);
-var blueObj = { s: 255, r: 0, g: 0, b: 255 };
+var blueObj = { s: 0, r: 0, g: 0, b: 255 };
 var blue = JSON.stringify(blueObj);
-var greenObj = { s: 255, r: 0, g: 0, b: 255 };
+var greenObj = { s: 0, r: 0, g: 0, b: 255 };
 var green = JSON.stringify(greenObj);
 
 var client = new twitter({
@@ -19,7 +19,7 @@ var client = new twitter({
 });
 
 var tweetsTopic = "TechSummit";
-var tweetsLanguage = "en"; //"es", "en", "fr", "pt"
+var tweetsLanguage = "es"; //"es", "en", "fr", "pt"
 var tweetsText = '';
 var sentiment = 0.5;
 var counter = 0;
@@ -39,16 +39,22 @@ function search() {
     stream.on('error', function (error) {
         console.log(error);
     });
+
+    analyzeTweets();
 }
 
 function analyzeTweets() {
-    if (tweetsText.length > 0) {
-        analyzeText(tweetsText);
-        tweetsText = '';
+    try {
+        if (tweetsText.length > 0) {
+            analyzeText(tweetsText);
+            tweetsText = '';
+        }
+    } catch (err) {
+        console.log(err);
     }
-}
 
-//setInterval(analyzeTweets, 1000);
+    setTimeout(analyzeTweets, 1000);
+}
 
 function analyzeText(tweet) {
     var score = 0;
@@ -82,17 +88,12 @@ function analyzeText(tweet) {
                     console.log('Error: ' + err);
                 }
             });
-            console.log(counter + " - " + sentiment + " - " + red);
+            console.log(counter + " - " + sentiment + " - " + color);
         }
         else
             console.log(error);
     });
-    setTimeout(analyzeTweets, 10000);
 }
-
-hubClient.open(search);
-
-//Helper functions
 
 function cleanText(text) {
     var urlLess_text = text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
@@ -105,4 +106,4 @@ function randInt(n) {
     return Math.floor(Math.random() * n);
 }
 
-search();
+hubClient.open(search);

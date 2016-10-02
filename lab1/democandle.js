@@ -28,7 +28,7 @@ var client = Client.fromConnectionString(connectionString, Protocol);
 
 function connected(err) {
 
-    pb.setColor(100, 255, 0, 0);
+    pb.setColor(1, 255, 0, 0);
 
     if (err) {
         console.log("connection error: " + err);

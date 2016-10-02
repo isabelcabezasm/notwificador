@@ -1,6 +1,7 @@
 {
   "globalDependencies": {
     "johnny-five": "registry:dt/johnny-five#0.0.0+20160316155526",
+    "noble": "registry:dt/noble#0.0.0+20160406120732",
     "node": "registry:dt/node#6.0.0+20160928143418"
   }
 }

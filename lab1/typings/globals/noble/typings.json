@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/247e8d48404d11f3aff85dea5029413229e0fc36/noble/noble.d.ts",
+    "raw": "registry:dt/noble#0.0.0+20160406120732",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/247e8d48404d11f3aff85dea5029413229e0fc36/noble/noble.d.ts"
+  }
+}

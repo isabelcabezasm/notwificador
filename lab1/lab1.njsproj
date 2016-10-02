@@ -51,10 +51,12 @@
     <Folder Include="typings\" />
     <Folder Include="typings\globals\" />
     <Folder Include="typings\globals\johnny-five\" />
+    <Folder Include="typings\globals\noble\" />
     <Folder Include="typings\globals\node\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="typings\globals\johnny-five\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\noble\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
     <TypeScriptCompile Include="typings\index.d.ts" />
   </ItemGroup>

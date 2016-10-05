@@ -51,7 +51,7 @@ app.post("/changeTopic", function (req, res) {
             });
         }
         else {
-            console.log(error);
+            console.log('Error Post: '+error);
         }
     });
     console.log(req.body.inputTopic);

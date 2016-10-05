@@ -19,6 +19,7 @@ var twitter = require('twitter');
 var request = require('request');
 var iothub = require('azure-iothub');
 var azure = require('azure-storage');
+var lastColor = "";
 
 var connectionString = process.env.CONNECTION_STRING; 
 var hubClient = iothub.Client.fromConnectionString(connectionString);
@@ -57,7 +58,7 @@ function search() {
     stream.on('data', handleTweet);
 
     stream.on('error', function (error) {
-        console.log(error);
+        console.log('search: '+error);
     });
 
     analyzeTweets();
@@ -105,15 +106,19 @@ function analyzeText(tweet) {
             else
                 color = blue;
 
+            if (color != lastColor) {
+                console.log(counter + " - " + sentiment + " - c:" + color + " - s:" + score + " - t:" + tweet);
+                lastColor = color;
+            }
+
             hubClient.send('Edison', color, function (err) {
                 if (err) {
-                    console.log('Error: ' + err);
+                    console.log('Send Error: ' + err);
                 }
-            });
-            console.log(counter + " - " + sentiment + " - c:" + color + " - s:" + score + " - t:" + tweet);
+            });            
         }
         else
-            console.log(error);
+            console.log("error request cognitive: "+error);
     });
 }
 
@@ -145,6 +150,9 @@ function listenQueue() {
                     queueSvc.deleteMessage('notwiqueue', message.messageId, message.popReceipt, function (error, response) {
                         if (!error) {
                             //message deleted
+                        }
+                        else {
+                            console.log("error delete queue: " + error);
                         }
                     });
                 }

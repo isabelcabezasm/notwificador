@@ -1,5 +1,5 @@
 ﻿'use strict';
-var connectionString = 'HostName=Notwificador.azure-devices.net;DeviceId=Edison;SharedAccessKey=8CZpKf2lmErzR1bQweIf9WkQfEZ/GImpzZXnsRJ66co='
+var connectionString = 'HostName=Notwificador.azure-devices.net;DeviceId=Edison;SharedAccessKey=XXXXX'
 
 var Playbulb = require('./playbulb.js');
 var Client = require('azure-iot-device').Client;

@@ -8,7 +8,8 @@ I've written a serial of posts (in Spanish, at the moment, sorry) explaining all
 You can read them here: https://blogs.msdn.microsoft.com/esmsdn/tag/invisible-o-desaparece/
 
 
-References of the talk: 
+### References of the talk: 
+
 https://www.vlcsofting.es/microsoft-invisible-o-desaparece%E2%80%A6
 https://www.todojs.com/invisible-desaparece-juliet-moreiro-bockhop/
 http://2017.jsday.es/

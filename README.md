@@ -1,3 +1,4 @@
+
 # Notwificador
 ## Invisible o desaparece (talk / charla)
 
@@ -11,8 +12,13 @@ You can read them here: https://blogs.msdn.microsoft.com/esmsdn/tag/invisible-o-
 ### References of the talk: 
 
 https://www.vlcsofting.es/microsoft-invisible-o-desaparece%E2%80%A6
+
 https://www.todojs.com/invisible-desaparece-juliet-moreiro-bockhop/
+
 http://2017.jsday.es/
+
 https://betabeers.com/event/granada-geek-dia-d-desarrollo-devops-datos-diseno-5242/
+
 http://ecoaula.eleconomista.es/campus/noticias/8251292/03/17/JSDayES-2017-mentes-maravillosas-traen-las-ultimas-tendencias-en-tecnologias-Javascript.html
+
 http://bilbostack.com/ (2017)
